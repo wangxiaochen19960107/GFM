@@ -39,7 +39,7 @@ class metric_mf(keras.callbacks.Callback):
 
 
 
-class metric_deepfm(keras.callbacks.Callback):
+class metric_fm(keras.callbacks.Callback):
     def __init__(self,test_users_id, test_items_id, test_sexes, test_ages, test_jobs, test_genres, hit_score, ndcg_score):   
         self.test_users_id = test_users_id
         self.test_items_id = test_items_id
@@ -80,7 +80,7 @@ class metric_deepfm(keras.callbacks.Callback):
         return
  
 
-class metric_deepfm_gbdt(keras.callbacks.Callback):
+class metric_fm_gbdt(keras.callbacks.Callback):
     def __init__(self, data, hit_score, ndcg_score):     
         self.data = data
         self.K = 10
