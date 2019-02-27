@@ -117,7 +117,7 @@ class metric_deepfm_gbdt(keras.callbacks.Callback):
         return
 
 
-def metric_gbdt(y_pred):
+def metric_gbdt(y_pred, users_num):
     hit_rate = 0
     ndcg_value = 0 
     
