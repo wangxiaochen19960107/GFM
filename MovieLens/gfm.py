@@ -11,7 +11,7 @@ from keras.regularizers import l2 as l2_reg
 
 from preparing import csv_processing
 from mylayers import MyMeanPool, MySumLayer, MyFlatten
-from metrics import metric_deepfm_gbdt
+from metrics import metric_fm_gbdt
 
 import keras.backend.tensorflow_backend as KTF
 import tensorflow as tf
@@ -171,7 +171,7 @@ prob = layers.Dense(1, activation='sigmoid')(prob)
 model = Model(input_cols, prob)
 model.compile(optimizer='rmsprop',loss='binary_crossentropy')
 history = model.fit(train_data, train_probs, epochs=100,batch_size=32768, \
-	callbacks = [metric_deepfm_gbdt(test_data, hit_score, ndcg_score)])
+	callbacks = [metric_fm_gbdt(test_data, hit_score, ndcg_score)])
     
 model.save('./model/model.h5')
 
